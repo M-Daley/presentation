@@ -1,16 +1,299 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+/*
+    Table of Contents 
+
+  1. Variables
+  2. DOM Stylings
+  3. Responsive Containers
+  4. Background Colors
+  5. Audio Player
+  5. Citations
+  6. Intext-Link
+  7. Highlight Citation
+*/
+
+
+/* 1. Variables */
+:root {
+  --clr-primary-200: #F3EED9;
+  --clr-primary-400: #824936;
+  
+  --clr-inactive-link: #0000FF;
+  --clr-active-link: #ff2e51;
+
+  --clr-neutral-000: #111;
+  --clr-neutral-100: #222C2A;
+  --clr-neutral-900: #EEE;
+
+  --ff-primary: 'Roboto', sans-serif;
+  --ff-accent: 'Playerfair Display', serif;
+
+  --progressBarWell: rgb(66, 66, 66);
+  --progressBarBackground: rgba(240, 9, 9, 0.397);
+  --progressBar: #DA3791;
+  --thumb:  #350f2d;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+.slider-container {
+  --progress-bar-height: 0.3rem;
+  --thumb-width: 1.2rem;
+  --thumb-height: 1.2rem;
 }
 
-* {
+*,
+::before,
+::after {
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
+}
+
+/* DOM Styling */
+
+body {
+  font-family: var(--ff-primary);
+  font-weight: 400;
+  font-size: 1.3125rem;
+  line-height: 1.6;
+}
+
+/* 3. Responsive Containers */
+
+body,
+h1,
+h2,
+h3,
+p,
+ul {
+  margin: 0;
+}
+
+h2,
+h3,
+p {
+  margin-bottom: 1em;
+}
+
+ul {
+  list-style-type: none;
+}
+
+li {
+  padding: .25em;
+}
+
+img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+}
+
+.text-center {
+  text-align: center;
+}
+
+header,
+section {
+  padding: 4rem 0;
+}
+
+@media (min-width) {
+  header,
+  section {
+    padding: 7rem 0;
+  }
+}
+
+footer {
+  background-color: var(--clr-neutral-100);
+  color: var(--clr-neutral-900);
+}
+
+.container {
+  margin-inline: auto;
+  width: min(90%, 80.5rem)
+}
+
+.split {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 40em) {
+  .split {
+    flex-direction: row;
+  }
+
+  .split > * {
+    flex-basis: 100%;
+  }
+
+  .split > * + * {
+    margin-left: 2rem;
+  }
+}
+
+.container--narrow {
+  max-width: 35rem;
+}
+
+/* 4. Background Colors */
+
+.bg-lite {
+  background-color: var(--clr-primary-200);
+}
+
+.bg-dark {
+  color: var(--clr-neutral-100);
+  background-color: var(--clr-neutral-900);
+}
+
+.bg-accent {
+  color: var(--clr-neutral-900);
+  background-color: var(--clr-primary-400);
+}
+
+.bg-accent h2 {
+  color: var(--clr-primary-200);
+}
+
+/* 5. Audio Player */
+.control-panel {
+  padding: 1.25rem 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.timer {
+  font-size: 1.2rem;
+  font-weight: 200;
+  color: var(--clr-neutral-000);
+}
+
+.slider-container {
+  position: relative;
+  width: 100%;
+}
+
+.slider-container:before {
+  content: '';
+  background-color: var(--progressBarWell);
+  width: 99%;
+  height: calc(var(--progress-bar-height) - 1px);
+  display: block;
+  position: absolute;
+  border-radius: 10px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.progress-bar-cover {
+  background-color: var(--progressBar);
+  width: 0%;
+  height: var(--progress-bar-height);
+  display: block;
+  position: absolute;
+  border-radius: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+  user-select: none;
+  pointer-events: none;
+}
+
+/* Hiding original audio tag element so only CSS version shows*/
+.range {
+  -webkit-appearance: none;
+  background-color: var(--progressBarBackground);
+  height: 10px;
+  width: 100%;
+  cursor: pointer;
+  opacity: 0;
+  margin: 0 auto;
+}
+
+.range::-webkit-slider-thumb {
+  width: var(--thumb-width);
+  height: var(--thumb-height);
+  background: var(--thumb);
+  border: 1px solid var(--clr-neutral-900);
+  border-radius: 50%;
+  cursor: pointer;
+  -webkit-appearance: none;
+}
+
+.thumb {
+  width: var(--thumb-width);
+  height: var(--thumb-height);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.753);
+  z-index: 3;
+  background: var(--clr-neutral-900);
+  position: absolute;
+  border-radius: 50%;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  user-select: none;
+}
+
+.btn-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 4.125rem;
+  height: 4.125rem;
+  flex-grow: 1;
+}
+
+.btn-play {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 20px 0 20px 30px;
+  border-color: transparent transparent transparent var(--clr-neutral-000);
+  cursor: pointer;
+}
+
+.btn-stop {
+  height: 3.5rem;
+  width:  3.5rem;
+  border-left: 10px solid var(--clr-neutral-000);
+  border-right: 10px solid var(--clr-neutral-000);
+  cursor: pointer;
+}
+
+/* 5. Citations */
+
+.cite-item {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.cite-item li {
+  flex-basis: 33.333%;
+}
+
+/* 6. Intext Link */
+
+.intext-link {
+  text-decoration: underline;
+  color: var(--clr-inactive-link);
+  cursor: pointer;
+}
+
+.active-link {
+  color: var(--clr-active-link);
+}
+
+/* 7. Highlight Citation */
+
+.active-highlight {
+  background-color: yellow;
+  transition: 0.5s linear;
+}
+
+.inactive-highlight {
+  background-color: transparent;
+  transition: 2s linear;
 }

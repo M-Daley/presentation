@@ -1,0 +1,21 @@
+Components/Audio/Slider.js
+    * Current Error: Resizing window causes AudioProgressBar to maintain it's current width instead of adjusting to fit container
+        ❌ Add resize listener on document in order to adjust width of AudioProgressBar along side the newly resized screen.
+        ✅ Fixed issue with thumb positioning causing progressbar styling to begin at the left of the component instead of right.
+
+Components/Audio/Button.js
+    * Pause Styling stays after the mp3 has ended. Reset the styling and "isPlaying" when the mp3 is over.
+        ✅ Fixed by adding a useEffect onto the percentage property and toggling "isPlaying" once it's reached 100
+
+Styles/globas.css > Audio
+    * Color of Pause/Play Button does not go well with all backgrounds
+        ✅ Changed color too the new --clr-neutral-000; a darker black that shows more promantly on current background colors.
+        ✅ Changed color of the progressbar well to match the color text.
+
+
+Client
+    Features:
+        * Citation Page containing links to their referenced material.
+            ✅ Pulls from pageprops.citations
+        * In text hyperlink that scrolls too the citation page and highlights the shared link.
+            ✅ Imported and linked react-scroll for the effect
