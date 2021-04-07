@@ -4,7 +4,7 @@ Presentation project for my boyfriends class!
 
 Custom audio track controllers, responsive images and columns on top of smooth scroll and state management without Redux using pure CSS for styling.
 
-![](./readMEImage.png)
+![](./readMeImage.png)
 
 Run Locally
 ```
