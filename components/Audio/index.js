@@ -40,7 +40,6 @@ export default function Audio({ song }) {
     }
 
     useEffect(() => {
-        console.log(percentage)
         if (percentage == 100) {
             setIsPlaying(false)
         }

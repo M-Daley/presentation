@@ -13,27 +13,15 @@ return (
         <div className="container" id="cite">
             <h2 className="text-center">Citations</h2>
             <ul className="cite-item">
-                {pageProps.citations.map(({ id, _, title, link }) => {
-                    if (link) {
-                        return (
-                            <li key={id} id={id}>
-                                <a href={link}>
-                                    <span className={highlight == id ? 'active-highlight' : 'inactive-highlight'} >
-                                        [{id}]{title}
-                                    </span>
-                                </a>
-                            </li>
-                        )
-                    } else {
-                        return (
-                            <li key={id} id={id}>
-                                <span className={highlight == id ? 'active-highlight' : 'inactive-highlight'} >
-                                    [{id}]{title}
-                                </span>
-                            </li>
-                        )
-                    }
-                })}
+                {[...new Set(pageProps.citations.map(({ id, author, title, date, book, bin }) => {
+                    return (
+                        <li key={id} id={id}>
+                            <span className={highlight == id ? 'active-highlight' : 'inactive-highlight'} >
+                                [{id}]{author} {date} {title} <i>{book}</i> {bin}
+                            </span>
+                        </li>
+                    )
+                }))]}
             </ul>
         </div>
     </section>

@@ -2,19 +2,19 @@ export default function Split() {
 return (
     <section>
         <div className="container">
-            <h2 className="text-center">Sample Breakdown</h2>
+            <h2 className="text-center">Project Summary</h2>
             <div className="split">
                 <div>
-                    <h3>Sample Subject Title</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores est atque optio, quidem ipsum ab expedita amet illum magni sint! Facere recusandae velit tempora hic officia vitae, magnam eius porro in tenetur at quis aliquam deleniti aut? Quae quas quos, quasi nemo quidem quam necessitatibus corrupti iure dolores omnis, nobis aliquid libero, facere ad numquam. Incidunt quos ea cum unde, magnam autem architecto blanditiis ab odit aliquam libero assumenda modi ex quo praesentium harum doloremque. Ut sint distinctio nihil perspiciatis eum tempore rem nam error veritatis aliquam a, quibusdam quaerat sit aut quis excepturi molestias iusto, amet nesciunt, recusandae laudantium.</p>
+                    <h3>Translation Between "Math" and "English"</h3>
+                    <p>Literacy in mathematics is important because math without context is meaningless. Of the many skills required to be literate in math, we will be exploring the skill of translating between mathematical language and the English language. This will focus on math-specific language and the challenges that come with it.</p>
                 </div>
                 <div>
-                    <h3>Sample Subject Title</h3>
-                    <p>Exercitationem quas quis eius. Rem veritatis ullam quas ipsum accusamus cupiditate obcaecati vel dolorem dicta. Minima ipsa ab illum rerum voluptatem ipsam accusamus dignissimos ducimus assumenda provident laudantium in inventore, quas velit facere qui quae expedita modi? Reiciendis, doloremque delectus repellat est porro earum dolores hic reprehenderit, cum laudantium quam. Rem nam distinctio eos? Dolorem, dignissimos sunt tenetur suscipit facere, accusantium in possimus voluptatibus tempore architecto quas natus tempora beatae ad autem ea quia libero. Voluptas reprehenderit laborum necessitatibus autem illo esse tempore ipsam facere itaque adipisci corrupti, dignissimos voluptatem. Sunt corporis, accusamus iste sint exercitationem temporibus eos cumque voluptates.</p>
+                    <h3>Importance of Communication</h3>
+                    <p>Building on the first section, we will be discussing why it is important to be able to express our ideas. Language and literacy development can only occur after numerous opportunities for students to engage in a mathematics conversation, which is the focus of this section.</p>
                 </div>
                 <div>
-                    <h3>Sample Subject Title</h3>
-                    <p>A et repellendus perferendis nesciunt assumenda. Laboriosam optio corrupti repellat dolorem cupiditate illum itaque, placeat iste odio repudiandae? Autem nihil error optio doloribus, numquam velit totam magni illo necessitatibus ut tenetur doloremque iste odio nostrum maxime! Incidunt, vero? Nam hic itaque quisquam laudantium mollitia. Quo blanditiis, eligendi ad perferendis veniam illum eum tempora nesciunt, similique explicabo neque minima eius iste mollitia iusto soluta accusamus laboriosam ipsam ratione autem sapiente consequuntur facilis saepe provident? Ipsa tempora architecto dicta quibusdam magni illo mollitia doloribus natus fugiat nulla voluptatum ab ea nihil aperiam unde voluptates, officiis quae iusto adipisci atque, ut et distinctio?</p>
+                    <h3>Examples of Classroom Application</h3>
+                    <p>In this last section, we will be discussing specific examples of how to apply some of the findings in our own classrooms. By applying these methods and strategies, we can help students develop their comprehension and communication skills, as well as develop schema of mathematical concepts rather than pure memorization.</p>
                 </div>
             </div>
         </div>

@@ -19,3 +19,4 @@ Client
             ✅ Pulls from pageprops.citations
         * In text hyperlink that scrolls too the citation page and highlights the shared link.
             ✅ Imported and linked react-scroll for the effect
+        * Requests subsections to house bullet points instead of paragraphs with points containing subpoints to be a header/title.

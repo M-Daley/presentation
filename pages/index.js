@@ -4,17 +4,17 @@ import pageProps from '../components/pageProps'
 import Citation from '../components/Citation'
 
 import { useState } from 'react'
+import OverflowSection from '../components/OverflowSection'
 
 export default function Home() {
-  const [highlight, setHighlight] = useState('')
+  const [highlight, setHighlight] = useState(33)
 
   return (
     <div>
       <Split />
       <SideBySide setHighlight={setHighlight} {...pageProps.section_one}/>
       <SideBySide setHighlight={setHighlight} {...pageProps.section_two}/>
-      <SideBySide setHighlight={setHighlight} {...pageProps.section_three}/>
-      <SideBySide setHighlight={setHighlight} {...pageProps.section_four}/>
+      <OverflowSection setHighlight={setHighlight} {...pageProps.section_three}/>
       <Citation setHighlight={setHighlight} highlight={highlight}/>
     </div>
   )

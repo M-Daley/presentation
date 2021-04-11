@@ -1,81 +1,81 @@
 import { useState, useEffect } from 'react'
 import InlineLink from './InlineLink'
+import pageProps from '../pageProps'
 
-export default function LinkInsert({ paragraph, phraseIndex, setHighlight }) {
-    const [ newParagraph, setNewParagraph ] = useState(null)
 
-    const itDoThings = () => {
-        let sentences = paragraph.split('.')
-        sentences.pop()
+export default function LinkInsert({ bulletItem, setHighlight }) {
+    const [newSentence, setNewSentence] = useState(null)
 
-        let newParagraph = []
+    const insertLinks = () => {
+        let sentence = []
+        let sentenceFragmentContainer = []
+        let currentIndex = 0
+        let matches = []
+        let phraseIndex = pageProps.phraseIndex
 
-        for (let i=0; i < sentences.length; i++) {
-            let currentIndex = 0
-            let matches = []
-            let newSentences = []
+        for (let phrase of phraseIndex) {
+            let re = phrase.key.replace(/\(/, '\\(').replace(/\)/, '\\)')
+            let match = bulletItem.match(re)
 
-            // Get the starting positions of all matched phrases within the string
-            for (let phrase of phraseIndex) {
-                let re = phrase.key;
-                let match = sentences[i].match(re)
-
-                if (match == null) continue
-
-                matches.push({
-                    phrase: phrase.key ,
-                    id: phrase.id,
-                    position: match.index
-                })
-            }
-
-            // Push JSX Elements into an array
-            if (matches != []) {
-                for (let j=0; j < matches.length; j++) {
-                    newSentences.push({
-                        data: sentences[i].slice(currentIndex, matches[j].position),
-                        type: "sentenceFragment"
-                    })
-                    newSentences.push({
-                        data: matches[j].phrase,
-                        id: matches[j].id,
-                        type: "keyword"
-                    })
-
-                    currentIndex += currentIndex + matches[j].phrase.length
-
-                    if (j == matches.length - 1) {
-                        newSentences.push({
-                            data: sentences[i].slice(currentIndex),
-                            type: "endOfSentence"
-                        })
-                    }
-                }
-
-                // Inject HTML into the parsed fragments and add too paragraph array
-                newParagraph.push(newSentences.map(({ data, id, type }) => {
-                    if (type == "sentenceFragment"){
-                        return <span>{data}</span>
-                    } else if (type == "keyword") {
-                        return <InlineLink id={id} data={data} setHighlight={setHighlight}/>
-                    } else if (type == "endOfSentence") {
-                        return <span>{data}.</span>
-                    } else {
-                        return
-                    }
-                }))
-            }
+            if (match == null) continue
+        
+            matches.push({
+                phrase: phrase.key,
+                id: phrase.id,
+                position: match.index
+            })
         }
 
-        return newParagraph
+        if (matches.length > 0) {
+            for (let j=0; j < matches.length; j++) {
+                sentenceFragmentContainer.push({
+                    data: bulletItem.slice(currentIndex, matches[j].position),
+                    type: "sentenceFragment"
+                })
+
+                sentenceFragmentContainer.push({
+                    data: matches[j].phrase,
+                    id: matches[j].id,
+                    type: "keyword"
+                })
+
+                currentIndex += currentIndex + matches[j].phrase.length + matches[j].position
+
+                if (j == matches.length - 1) {
+                    sentenceFragmentContainer.push({
+                        data: bulletItem.slice(currentIndex),
+                        type: "endOfSentence"
+                    })
+                }
+            }
+
+            sentence.push(sentenceFragmentContainer.map(({ data, id, type }) => {
+                switch(type) {
+                    case 'sentenceFragment':
+                        return <span>{data}</span>
+                    case 'keyword':
+                        return <InlineLink id={id} data={data} setHighlight={setHighlight}/>
+                    case 'endOfSentence':
+                        return <span>{data}</span>
+                    default:
+                        break
+
+                }
+            }))
+
+        } else {
+            sentence.push(<span>{bulletItem}</span>)
+        }
+
+        return sentence
     }
 
     useEffect(() => {
-        setNewParagraph(itDoThings())
+        setNewSentence(insertLinks())
     }, [])
 
 return (
     <p>
-        {newParagraph}
+        {newSentence}
     </p>
 )}
