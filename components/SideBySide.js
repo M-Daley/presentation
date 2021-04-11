@@ -1,7 +1,7 @@
 import Audio from './Audio'
 import SubSection from './SubSection'
 
-export default function SideBySide({ src, alt, direction, title, bulletList, bg, setHighlight }) {
+export default function SideBySide({ src, alt, direction, title, bulletList, bg, setHighlight, rec }) {
     const imageLocation = direction == "left"
 
 return (
@@ -19,7 +19,9 @@ return (
                     </div>
                     <div>
                         <img src={src} alt={alt}/>
-                        <Audio song="/audio/song.mp3"/>
+                        {rec &&
+                            <Audio song={rec}/>
+                        }
                     </div>
                 </div>
             </div>
@@ -28,7 +30,9 @@ return (
                 <div className="split">
                     <div>
                         <img src={src} alt={alt}/>
-                        <Audio song="/audio/song.mp3"/>
+                        {rec &&
+                            <Audio song={rec}/>
+                        }
                     </div>
                     <div>
                         <h3>{title}</h3>

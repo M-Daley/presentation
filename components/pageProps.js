@@ -5,6 +5,7 @@ const configSettings = {
         title: "Translation Between “Math” and “English”",
         src: "/img/section_1.png",
         alt: "cupped hand holding soil with tree sapling passing off to outreached hands",
+        rec: "/audio/DLIP_1.mp3",
         bulletList: [
             {
                 title: "",
@@ -22,6 +23,7 @@ const configSettings = {
         title: "Importance of Communication",
         src: "/img/section_2.jpg",
         alt: "4 dolls holding hands brainstorming atop puzzle pieces.",
+        rec: "/audio/DLIP_2.mp3",
         bulletList: [
             {
                 title: "",
@@ -40,6 +42,7 @@ const configSettings = {
         title: "Examples of Classroom Application",
         src: "/img/section_3.png",
         alt: "",
+        rec: "/audio/DLIP_3.mp3",
         bulletList: [
             {
                 title: "Kong & Orosco (2016) – methods to increase word problem comprehension",
@@ -66,6 +69,22 @@ const configSettings = {
                     "Diagrams",
                     "Symbolic notation",
                     "Instructional designs"
+                ]
+            }
+        ]
+    },
+    section_four: {
+        direction: "right",
+        bg: "bg-dark",
+        title: "Conclusion",
+        src: "/img/section_4.png",
+        alt: "Mathematics party banner",
+        rec: null,
+        bulletList: [
+            {
+                title: "",
+                data: [
+                    ""
                 ]
             }
         ]

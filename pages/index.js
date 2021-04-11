@@ -15,6 +15,7 @@ export default function Home() {
       <SideBySide setHighlight={setHighlight} {...pageProps.section_one}/>
       <SideBySide setHighlight={setHighlight} {...pageProps.section_two}/>
       <OverflowSection setHighlight={setHighlight} {...pageProps.section_three}/>
+      <SideBySide setHighlight={setHighlight} {...pageProps.section_four} />
       <Citation setHighlight={setHighlight} highlight={highlight}/>
     </div>
   )
