@@ -18,7 +18,7 @@ export default function Audio({ song }) {
 
     const play = () => {
         const audio = audioRef.current
-        audio.volume = 1.2
+        audio.volume = 1.0
 
         if (!isPlaying) {
             setIsPlaying(true)
