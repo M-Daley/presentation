@@ -11,7 +11,7 @@ export default function InlineLink({ id, data, setHighlight }) {
     
     return (
         <Link className={`intext-link ${linkClicked ? 'active-link': ''}`} to="cite" activeClass="active" spy={true} smooth={600}>
-            <span onClick={triggerScrollAndHighlight}>[{id}]{data}</span>
+            <span onClick={triggerScrollAndHighlight}>{data}</span>
         </Link>
     )
 }

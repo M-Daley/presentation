@@ -79,12 +79,14 @@ const configSettings = {
         title: "Conclusion",
         src: "/img/section_4.png",
         alt: "Mathematics party banner",
-        rec: null,
+        rec: "/audio/DLIP_4.wav",
         bulletList: [
             {
                 title: "",
                 data: [
-                    ""
+                    "Language, although seemingly unrelated, is important in understanding mathematics",
+                    "Methods and strategies presented help students in language acquisition and engaging in mathematics discourse",
+                    "Methods and strategies presented can also help students in their personal development in areas such as self confidence and motivation"
                 ]
             }
         ]

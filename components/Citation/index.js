@@ -17,7 +17,7 @@ return (
                     return (
                         <li key={id} id={id}>
                             <span className={highlight == id ? 'active-highlight' : 'inactive-highlight'} >
-                                [{id}]{author} {date} {title} <i>{book}</i> {bin}
+                                {author} {date} {title} <i>{book}</i>{bin}
                             </span>
                         </li>
                     )
