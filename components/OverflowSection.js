@@ -1,7 +1,7 @@
 import SubSection from './SubSection'
 import Audio from './Audio'
 
-export default function OverflowSection({ src, alt, title, bulletList, bg, setHighlight }) {
+export default function OverflowSection({ src, alt, title, bulletList, bg, setHighlight, rec }) {
     return  (
         <section className={`${bg}`}>
             <div className="container">
@@ -15,7 +15,9 @@ export default function OverflowSection({ src, alt, title, bulletList, bg, setHi
                     </div>
                     <div>
                         <img src={src} alt={alt}/>
-                        <Audio song="/audio/song.mp3"/>
+                        {rec &&
+                            <Audio song={rec} />
+                        }
                     </div>
                 </div>
             </div>
